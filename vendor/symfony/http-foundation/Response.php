@@ -72,7 +72,7 @@ class Response
     public const HTTP_PRECONDITION_REQUIRED = 428;                                       // RFC6585
     public const HTTP_TOO_MANY_REQUESTS = 429;                                           // RFC6585
     public const HTTP_REQUEST_HEADER_FIELDS_TOO_LARGE = 431;                             // RFC6585
-    public const HTTP_UNAVAILABLE_FOR_LEGAL_REASONS = 451;
+    public const HTTP_UNAVAILABLE_FOR_LEGAL_REASONS = 451;                               // RFC7725
     public const HTTP_INTERNAL_SERVER_ERROR = 500;
     public const HTTP_NOT_IMPLEMENTED = 501;
     public const HTTP_BAD_GATEWAY = 502;
@@ -212,6 +212,8 @@ class Response
     ];
 
     /**
+     * @param int $status The HTTP status code (200 "OK" by default)
+     *
      * @throws \InvalidArgumentException When the HTTP status code is not valid
      */
     public function __construct(?string $content = '', int $status = 200, array $headers = [])
@@ -380,6 +382,7 @@ class Response
             litespeed_finish_request();
         } elseif (!\in_array(\PHP_SAPI, ['cli', 'phpdbg'], true)) {
             static::closeOutputBuffers(0, true);
+            flush();
         }
 
         return $this;
@@ -717,6 +720,9 @@ class Response
      */
     public function setExpires(\DateTimeInterface $date = null): static
     {
+        if (1 > \func_num_args()) {
+            trigger_deprecation('symfony/http-foundation', '6.2', 'Calling "%s()" without any arguments is deprecated, pass null explicitly instead.', __METHOD__);
+        }
         if (null === $date) {
             $this->headers->remove('Expires');
 
@@ -896,6 +902,9 @@ class Response
      */
     public function setLastModified(\DateTimeInterface $date = null): static
     {
+        if (1 > \func_num_args()) {
+            trigger_deprecation('symfony/http-foundation', '6.2', 'Calling "%s()" without any arguments is deprecated, pass null explicitly instead.', __METHOD__);
+        }
         if (null === $date) {
             $this->headers->remove('Last-Modified');
 
@@ -934,6 +943,9 @@ class Response
      */
     public function setEtag(string $etag = null, bool $weak = false): static
     {
+        if (1 > \func_num_args()) {
+            trigger_deprecation('symfony/http-foundation', '6.2', 'Calling "%s()" without any arguments is deprecated, pass null explicitly instead.', __METHOD__);
+        }
         if (null === $etag) {
             $this->headers->remove('Etag');
         } else {

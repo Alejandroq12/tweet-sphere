@@ -877,7 +877,7 @@ class BelongsToMany extends Relation
     /**
      * Get the pivot columns for the relation.
      *
-     * "pivot_" is prefixed ot each column for easy removal later.
+     * "pivot_" is prefixed at each column for easy removal later.
      *
      * @return array
      */
@@ -1225,6 +1225,20 @@ class BelongsToMany extends Relation
         $this->touchIfTouching();
 
         return $models;
+    }
+
+    /**
+     * Save an array of new models without raising any events and attach them to the parent model.
+     *
+     * @param  \Illuminate\Support\Collection|array  $models
+     * @param  array  $pivotAttributes
+     * @return array
+     */
+    public function saveManyQuietly($models, array $pivotAttributes = [])
+    {
+        return Model::withoutEvents(function () use ($models, $pivotAttributes) {
+            return $this->saveMany($models, $pivotAttributes);
+        });
     }
 
     /**

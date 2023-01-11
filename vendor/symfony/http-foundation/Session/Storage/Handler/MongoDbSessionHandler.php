@@ -84,9 +84,6 @@ class MongoDbSessionHandler extends AbstractSessionHandler
         return true;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function doDestroy(string $sessionId): bool
     {
         $this->getCollection()->deleteOne([
@@ -103,12 +100,9 @@ class MongoDbSessionHandler extends AbstractSessionHandler
         ])->getDeletedCount();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function doWrite(string $sessionId, string $data): bool
     {
-        $ttl = ($this->ttl instanceof \Closure ? ($this->ttl)() : $this->ttl) ?? ini_get('session.gc_maxlifetime');
+        $ttl = ($this->ttl instanceof \Closure ? ($this->ttl)() : $this->ttl) ?? \ini_get('session.gc_maxlifetime');
         $expiry = new UTCDateTime((time() + (int) $ttl) * 1000);
 
         $fields = [
@@ -128,7 +122,7 @@ class MongoDbSessionHandler extends AbstractSessionHandler
 
     public function updateTimestamp(string $sessionId, string $data): bool
     {
-        $ttl = ($this->ttl instanceof \Closure ? ($this->ttl)() : $this->ttl) ?? ini_get('session.gc_maxlifetime');
+        $ttl = ($this->ttl instanceof \Closure ? ($this->ttl)() : $this->ttl) ?? \ini_get('session.gc_maxlifetime');
         $expiry = new UTCDateTime((time() + (int) $ttl) * 1000);
 
         $this->getCollection()->updateOne(
@@ -142,9 +136,6 @@ class MongoDbSessionHandler extends AbstractSessionHandler
         return true;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function doRead(string $sessionId): string
     {
         $dbData = $this->getCollection()->findOne([

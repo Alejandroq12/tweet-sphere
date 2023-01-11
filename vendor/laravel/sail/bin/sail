@@ -116,8 +116,10 @@ else
 fi
 
 # Source the ".env" file so Laravel's environment variables are available...
-if [ -f ./.env ]; then
-    source ./.env
+if [ ! -z "$APP_ENV" ] && [ -f ./.env.$APP_ENV ]; then
+  source ./.env.$APP_ENV;
+elif [ -f ./.env ]; then
+  source ./.env;
 fi
 
 # Define environment variables...
@@ -152,7 +154,7 @@ fi
 
 if [ -n "$SAIL_FILES" ]; then
     # Convert SAIL_FILES to an array...
-    SAIL_FILES=("${SAIL_FILES//:/ }")
+    IFS=':' read -ra SAIL_FILES <<< "$SAIL_FILES"
 
     for FILE in "${SAIL_FILES[@]}"; do
         if [ -f "$FILE" ]; then

@@ -129,9 +129,20 @@ class MySqlGrammar extends Grammar
     }
 
     /**
+     * Compile a "JSON value cast" statement into SQL.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function compileJsonValueCast($value)
+    {
+        return 'cast('.$value.' as json)';
+    }
+
+    /**
      * Compile the random statement into SQL.
      *
-     * @param  string  $seed
+     * @param  string|int  $seed
      * @return string
      */
     public function compileRandom($seed)

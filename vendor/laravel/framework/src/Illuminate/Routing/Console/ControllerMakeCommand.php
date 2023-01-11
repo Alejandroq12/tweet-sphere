@@ -57,11 +57,15 @@ class ControllerMakeCommand extends GeneratorCommand
         if ($type = $this->option('type')) {
             $stub = "/stubs/controller.{$type}.stub";
         } elseif ($this->option('parent')) {
-            $stub = '/stubs/controller.nested.stub';
+            $stub = $this->option('singleton')
+                        ? '/stubs/controller.nested.singleton.stub'
+                        : '/stubs/controller.nested.stub';
         } elseif ($this->option('model')) {
             $stub = '/stubs/controller.model.stub';
         } elseif ($this->option('invokable')) {
             $stub = '/stubs/controller.invokable.stub';
+        } elseif ($this->option('singleton')) {
+            $stub = '/stubs/controller.singleton.stub';
         } elseif ($this->option('resource')) {
             $stub = '/stubs/controller.stub';
         }
@@ -123,6 +127,10 @@ class ControllerMakeCommand extends GeneratorCommand
             $replace = $this->buildModelReplacements($replace);
         }
 
+        if ($this->option('creatable')) {
+            $replace['abort(404);'] = '//';
+        }
+
         $replace["use {$controllerNamespace}\Controller;\n"] = '';
 
         return str_replace(
@@ -140,7 +148,7 @@ class ControllerMakeCommand extends GeneratorCommand
         $parentModelClass = $this->parseModel($this->option('parent'));
 
         if (! class_exists($parentModelClass) &&
-            $this->confirm("A {$parentModelClass} model does not exist. Do you want to generate it?", true)) {
+            $this->components->confirm("A {$parentModelClass} model does not exist. Do you want to generate it?", true)) {
             $this->call('make:model', ['name' => $parentModelClass]);
         }
 
@@ -167,7 +175,7 @@ class ControllerMakeCommand extends GeneratorCommand
     {
         $modelClass = $this->parseModel($this->option('model'));
 
-        if (! class_exists($modelClass) && $this->confirm("A {$modelClass} model does not exist. Do you want to generate it?", true)) {
+        if (! class_exists($modelClass) && $this->components->confirm("A {$modelClass} model does not exist. Do you want to generate it?", true)) {
             $this->call('make:model', ['name' => $modelClass]);
         }
 
@@ -277,14 +285,16 @@ class ControllerMakeCommand extends GeneratorCommand
     protected function getOptions()
     {
         return [
-            ['api', null, InputOption::VALUE_NONE, 'Exclude the create and edit methods from the controller.'],
-            ['type', null, InputOption::VALUE_REQUIRED, 'Manually specify the controller stub file to use.'],
+            ['api', null, InputOption::VALUE_NONE, 'Exclude the create and edit methods from the controller'],
+            ['type', null, InputOption::VALUE_REQUIRED, 'Manually specify the controller stub file to use'],
             ['force', null, InputOption::VALUE_NONE, 'Create the class even if the controller already exists'],
-            ['invokable', 'i', InputOption::VALUE_NONE, 'Generate a single method, invokable controller class.'],
-            ['model', 'm', InputOption::VALUE_OPTIONAL, 'Generate a resource controller for the given model.'],
-            ['parent', 'p', InputOption::VALUE_OPTIONAL, 'Generate a nested resource controller class.'],
-            ['resource', 'r', InputOption::VALUE_NONE, 'Generate a resource controller class.'],
-            ['requests', 'R', InputOption::VALUE_NONE, 'Generate FormRequest classes for store and update.'],
+            ['invokable', 'i', InputOption::VALUE_NONE, 'Generate a single method, invokable controller class'],
+            ['model', 'm', InputOption::VALUE_OPTIONAL, 'Generate a resource controller for the given model'],
+            ['parent', 'p', InputOption::VALUE_OPTIONAL, 'Generate a nested resource controller class'],
+            ['resource', 'r', InputOption::VALUE_NONE, 'Generate a resource controller class'],
+            ['requests', 'R', InputOption::VALUE_NONE, 'Generate FormRequest classes for store and update'],
+            ['singleton', 's', InputOption::VALUE_NONE, 'Generate a singleton resource controller class'],
+            ['creatable', null, InputOption::VALUE_NONE, 'Indicate that a singleton resource should be creatable'],
         ];
     }
 }

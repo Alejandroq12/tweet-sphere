@@ -54,7 +54,6 @@ use PHPUnit\TextUI\XmlConfiguration\CodeCoverage\FilterMapper;
 use PHPUnit\TextUI\XmlConfiguration\Configuration;
 use PHPUnit\TextUI\XmlConfiguration\Loader;
 use PHPUnit\TextUI\XmlConfiguration\PhpHandler;
-use PHPUnit\Util\Color;
 use PHPUnit\Util\Filesystem;
 use PHPUnit\Util\Log\JUnit;
 use PHPUnit\Util\Log\TeamCity;
@@ -308,7 +307,7 @@ final class TestRunner extends BaseTestRunner
                     } catch (ReflectionException $e) {
                         throw new Exception(
                             $e->getMessage(),
-                            (int) $e->getCode(),
+                            $e->getCode(),
                             $e
                         );
                     }
@@ -326,18 +325,7 @@ final class TestRunner extends BaseTestRunner
             $this->printer->setShowProgressAnimation(!$arguments['noInteraction']);
         }
 
-        if ($arguments['colors'] !== DefaultResultPrinter::COLOR_NEVER) {
-            $this->write(
-                'PHPUnit ' .
-                Version::id() .
-                ' ' .
-                Color::colorize('bg-blue,fg-white', '#StandWith') .
-                Color::colorize('bg-yellow', 'Ukraine') .
-                "\n"
-            );
-        } else {
-            $this->write(Version::getVersionString() . "\n");
-        }
+        $this->write(Version::getVersionString() . "\n");
 
         foreach ($arguments['listeners'] as $listener) {
             $result->addListener($listener);

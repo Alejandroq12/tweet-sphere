@@ -52,11 +52,12 @@ final class StandardTestSuiteLoader implements TestSuiteLoader
         }
 
         if (!class_exists($suiteClassName, false)) {
-            // this block will handle namespaced classes
             $offset = 0 - strlen($suiteClassName);
 
             foreach ($loadedClasses as $loadedClass) {
-                if (stripos(substr($loadedClass, $offset - 1), '\\' . $suiteClassName) === 0) {
+                // @see https://github.com/sebastianbergmann/phpunit/issues/5020
+                if (stripos(substr($loadedClass, $offset - 1), '\\' . $suiteClassName) === 0 ||
+                    stripos(substr($loadedClass, $offset - 1), '_' . $suiteClassName) === 0) {
                     $suiteClassName = $loadedClass;
 
                     break;
@@ -74,7 +75,7 @@ final class StandardTestSuiteLoader implements TestSuiteLoader
         } catch (ReflectionException $e) {
             throw new Exception(
                 $e->getMessage(),
-                (int) $e->getCode(),
+                $e->getCode(),
                 $e
             );
         }
@@ -91,7 +92,7 @@ final class StandardTestSuiteLoader implements TestSuiteLoader
             } catch (ReflectionException $e) {
                 throw new Exception(
                     $e->getMessage(),
-                    (int) $e->getCode(),
+                    $e->getCode(),
                     $e
                 );
             }

@@ -212,9 +212,7 @@ class ErrorHandler
                 }
             }
         } else {
-            if (null === $levels) {
-                $levels = \E_ALL;
-            }
+            $levels ??= \E_ALL;
             foreach ($this->loggers as $type => $log) {
                 if (($type & $levels) && (empty($log[0]) || $replace || $log[0] === $this->bootstrappingLogger)) {
                     $log[0] = $logger;
@@ -359,8 +357,8 @@ class ErrorHandler
      */
     private function reRegister(int $prev): void
     {
-        if ($prev !== $this->thrownErrors | $this->loggedErrors) {
-            $handler = set_error_handler('var_dump');
+        if ($prev !== ($this->thrownErrors | $this->loggedErrors)) {
+            $handler = set_error_handler('is_int');
             $handler = \is_array($handler) ? $handler[0] : null;
             restore_error_handler();
             if ($handler === $this) {
@@ -539,7 +537,7 @@ class ErrorHandler
             if (null !== $exceptionHandler) {
                 return $exceptionHandler($exception);
             }
-            $handlerException = $handlerException ?: $exception;
+            $handlerException ??= $exception;
         } catch (\Throwable $handlerException) {
         }
         if ($exception === $handlerException && null === $this->exceptionHandler) {
@@ -578,7 +576,7 @@ class ErrorHandler
         $sameHandlerLimit = 10;
 
         while (!\is_array($handler) || !$handler[0] instanceof self) {
-            $handler = set_exception_handler('var_dump');
+            $handler = set_exception_handler('is_int');
             restore_exception_handler();
 
             if (!$handler) {

@@ -295,7 +295,7 @@ class Collection extends BaseCollection implements QueueableCollection
     /**
      * Determine if a key exists in the collection.
      *
-     * @param  (callable(TModel, TKey): bool)|TModel|string  $key
+     * @param  (callable(TModel, TKey): bool)|TModel|string|int  $key
      * @param  mixed  $operator
      * @param  mixed  $value
      * @return bool
@@ -526,6 +526,28 @@ class Collection extends BaseCollection implements QueueableCollection
     }
 
     /**
+     * Set the visible attributes across the entire collection.
+     *
+     * @param  array<int, string>  $visible
+     * @return $this
+     */
+    public function setVisible($visible)
+    {
+        return $this->each->setVisible($visible);
+    }
+
+    /**
+     * Set the hidden attributes across the entire collection.
+     *
+     * @param  array<int, string>  $hidden
+     * @return $this
+     */
+    public function setHidden($hidden)
+    {
+        return $this->each->setHidden($hidden);
+    }
+
+    /**
      * Append an attribute across the entire collection.
      *
      * @param  array<array-key, string>|string  $attributes
@@ -564,7 +586,7 @@ class Collection extends BaseCollection implements QueueableCollection
      *
      * @param  string|array<array-key, string>  $value
      * @param  string|null  $key
-     * @return \Illuminate\Support\Collection<int, mixed>
+     * @return \Illuminate\Support\Collection<array-key, mixed>
      */
     public function pluck($value, $key = null)
     {
@@ -665,15 +687,28 @@ class Collection extends BaseCollection implements QueueableCollection
             return;
         }
 
-        $class = get_class($this->first());
+        $class = $this->getQueueableModelClass($this->first());
 
         $this->each(function ($model) use ($class) {
-            if (get_class($model) !== $class) {
+            if ($this->getQueueableModelClass($model) !== $class) {
                 throw new LogicException('Queueing collections with multiple model types is not supported.');
             }
         });
 
         return $class;
+    }
+
+    /**
+     * Get the queueable class name for the given model.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @return string
+     */
+    protected function getQueueableModelClass($model)
+    {
+        return method_exists($model, 'getQueueableClassName')
+                ? $model->getQueueableClassName()
+                : get_class($model);
     }
 
     /**
