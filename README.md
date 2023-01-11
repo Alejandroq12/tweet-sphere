@@ -9,58 +9,63 @@
 
 ## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+With this project I practiced:
+* PHP
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* Vue
 
-## Learning Laravel
+* Axios
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+* Javascript
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+* Composer
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* NPM
 
-## Laravel Sponsors
+* HTTP request
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Work in progress.... this app is not finished.
 
-### Premium Partners
+--------------------------------------------------------------------------------------------
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+To run this project:
 
-## Contributing
+* 1- PHP: Laravel is built with PHP, so you'll need to have PHP installed on your computer. You can download it from the official PHP website: https://windows.php.net/download/
+* 2- Composer: This is a dependency manager for PHP that is used by Laravel. You can download it from the official Composer website: https://getcomposer.org/
+* 3- A web server: Laravel is a web framework, so you'll need to have a web server installed on your computer to run the project. You can use Apache or Nginx, or you can use the built-in web server that comes with PHP.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Once you have these installed, you can follow these steps to run the project:
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+* 1- Open a terminal window and navigate to the root directory of the project.
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* 2- Run the command *composer install* to install all of the project's dependencies.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+* 3- Run the command *php artisan serve*. This will start the built-in web server and the project will be available at http://localhost:8000/ in your web browser.
+
+
+If you are facing problem on running the command php artisan serve , ensure that you have set environment variable and other requirements like database connection information is properly set.
+Also check the laravel version, if the installed version does not match the project version.
+Laravel 9***
+
+-----------------------------------------------------------------------------------
+
+#The Project is also running Vue.js, in addition to the steps I previously outlined, you will also need to have Node.js and npm (Node Package Manager) installed on your computer. These are needed to run and build the Vue.js front-end code.
+
+
+You can download Node.js and npm from the official Node.js website: https://nodejs.org/en/download/
+
+Once you have Node.js and npm installed, you can run the following commands in the terminal, in the project's root directory, to build and run the Vue.js front-end code:
+
+* 1- *npm install*: This command will install all of the project's front-end dependencies, defined in package.json file.
+
+* 2- *npm run dev*: This command will build the development version of the Vue.js code and bundle it with the Laravel's assets.
+
+* 3- *npm run watch*: This command will start a watcher that will listen for file changes, then rebuild the assets on each change.
+
+You will also need to ensure that the paths to the compiled assets are properly set in the Laravel's blade views or single file components, so that they can be loaded in browser correctly.
+
+And also make sure that the laravel-mix is correctly configured to run vue , incase if you are facing problem on running the above commands.
