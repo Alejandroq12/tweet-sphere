@@ -13,6 +13,8 @@
 With this project I practiced:
 * PHP
 
+* PostgreSQL
+
 * Vue
 
 * Axios

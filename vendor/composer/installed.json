@@ -1434,6 +1434,63 @@
             "install-path": "../laravel/framework"
         },
         {
+            "name": "laravel/homestead",
+            "version": "v14.0.1",
+            "version_normalized": "14.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/homestead.git",
+                "reference": "7085805884aa99d5ec373d8c4320d9be326d74c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/homestead/zipball/7085805884aa99d5ec373d8c4320d9be326d74c0",
+                "reference": "7085805884aa99d5ec373d8c4320d9be326d74c0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0 || <8.3",
+                "symfony/console": "^5.0 || ^6.0",
+                "symfony/process": "^5.0 || ^6.0",
+                "symfony/yaml": "^5.0 || ^6.0"
+            },
+            "require-dev": {
+                "dms/phpunit-arraysubset-asserts": "^0.2.1",
+                "phpunit/phpunit": "^9.5"
+            },
+            "time": "2023-01-10T00:38:36+00:00",
+            "bin": [
+                "bin/homestead"
+            ],
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Homestead\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                },
+                {
+                    "name": "Joe Ferguson",
+                    "email": "joe@joeferguson.me"
+                }
+            ],
+            "description": "A virtual machine for web artisans.",
+            "support": {
+                "issues": "https://github.com/laravel/homestead/issues",
+                "source": "https://github.com/laravel/homestead/tree/v14.0.1"
+            },
+            "install-path": "../laravel/homestead"
+        },
+        {
             "name": "laravel/pint",
             "version": "v1.4.0",
             "version_normalized": "1.4.0.0",
@@ -7845,6 +7902,83 @@
             "install-path": "../symfony/var-dumper"
         },
         {
+            "name": "symfony/yaml",
+            "version": "v6.2.2",
+            "version_normalized": "6.2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "6ed8243aa5f2cb5a57009f826b5e7fb3c4200cf3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/6ed8243aa5f2cb5a57009f826b5e7fb3c4200cf3",
+                "reference": "6ed8243aa5f2cb5a57009f826b5e7fb3c4200cf3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1",
+                "symfony/polyfill-ctype": "^1.8"
+            },
+            "conflict": {
+                "symfony/console": "<5.4"
+            },
+            "require-dev": {
+                "symfony/console": "^5.4|^6.0"
+            },
+            "suggest": {
+                "symfony/console": "For validating YAML files using the lint command"
+            },
+            "time": "2022-12-14T16:11:27+00:00",
+            "bin": [
+                "Resources/bin/yaml-lint"
+            ],
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Loads and dumps YAML files",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/yaml/tree/v6.2.2"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "../symfony/yaml"
+        },
+        {
             "name": "theseer/tokenizer",
             "version": "1.2.1",
             "version_normalized": "1.2.1.0",
@@ -8185,6 +8319,7 @@
         "fakerphp/faker",
         "filp/whoops",
         "hamcrest/hamcrest-php",
+        "laravel/homestead",
         "laravel/pint",
         "laravel/sail",
         "mockery/mockery",
@@ -8218,6 +8353,7 @@
         "spatie/flare-client-php",
         "spatie/ignition",
         "spatie/laravel-ignition",
+        "symfony/yaml",
         "theseer/tokenizer"
     ]
 }
