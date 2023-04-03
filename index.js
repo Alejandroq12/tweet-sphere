@@ -7,7 +7,11 @@ tweetBtn.addEventListener('click', function () {
 });
 
 function getFeedHtml() {
-    tweetsData.forEach(function(tweet) {`<div class='tweet'>
+  let feedHtml = '';
+
+  tweetsData.forEach(function (tweet) {
+    feedHtml += `
+        <div class='tweet'>
         <div class='tweet-inner'>
           <img src='${tweet.profilePic}' class="profile-pic" />
           <div>
@@ -20,10 +24,16 @@ function getFeedHtml() {
             </div>
           </div>
         </div>
-      </div>`
-    });
+      </div>`;
+  });
 
-return tweetsData;
+  return feedHtml;
 }
-  console.log(getFeedHtml());
 
+// () => { const feed = document.getElementById('feed'); feed.innerHTML = getFeedHtml() };
+function render() {
+  const feed = document.getElementById('feed');
+  feed.innerHTML = getFeedHtml();
+}
+
+render();
