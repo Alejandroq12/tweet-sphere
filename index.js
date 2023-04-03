@@ -18,7 +18,7 @@ function getFeedHtml() {
             <p class='handle'>${tweet.handle}</p>
             <p class='tweet-text'>${tweet.tweetText}</p>
             <div class='tweet-details'>
-              <span class='tweet-detail'>${tweet.replies.lenght}</span>
+              <span class='tweet-detail'>${tweet.replies.length}</span>
               <span class='tweet-detail'>${tweet.likes}</span>
               <span class='tweet-detail'>${tweet.retweets}</span>
             </div>

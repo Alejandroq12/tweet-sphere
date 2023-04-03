@@ -91,7 +91,7 @@ button {
   display: flex;
   font-size: 13px;
   justify-content: space-between;
-  width: 160px
+  width: 160px;
 }
 
 .tweet-detail {
@@ -100,13 +100,13 @@ button {
 }
 
 .tweet-reply {
-  border-top: 1px solid lightgray;
+  border-top: 1px solid var(--color-gray);
   padding: 20px 0 0 40px;
   margin: 10px 0 10px 40px;
-  width: 80%;
+  width: 80%; 
 }
 
-.handle { 
+.handle {
   font-size: 12px;
   font-weight: 500;
   color: var(--color-gray);
@@ -121,7 +121,7 @@ button {
 
 /* images */
 .profile-pic {
-  border: 1px solid lightgray;
+  border: 1px solid var(--color-gray);
   border-radius: 50%;
   width: 48px;
 }
