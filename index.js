@@ -32,8 +32,7 @@ function getFeedHtml() {
 
 // () => { const feed = document.getElementById('feed'); feed.innerHTML = getFeedHtml() };
 function render() {
-  const feed = document.getElementById('feed');
-  feed.innerHTML = getFeedHtml();
+  document.getElementById('feed').innerHTML = getFeedHtml();
 }
 
 render();
