@@ -22,6 +22,7 @@ function getFeedHtml() {
                 <i class='fa-regular fa-comment-dots'></i>
               ${tweet.replies.length}</span>
               <span class='tweet-detail'>
+              <li class='fa-solid fa-heart'></li>
               ${tweet.likes}</span>
               <span class='tweet-detail'>
               ${tweet.retweets}</span>
