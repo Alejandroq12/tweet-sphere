@@ -25,6 +25,7 @@ function getFeedHtml() {
               <li class='fa-solid fa-heart'></li>
               ${tweet.likes}</span>
               <span class='tweet-detail'>
+              <li class='fa-solid fa-retweet'></li>
               ${tweet.retweets}</span>
             </div>
           </div>
