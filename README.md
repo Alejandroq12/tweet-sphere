@@ -50,7 +50,6 @@
     <li><a href="https://developer.mozilla.org/es/docs/Learn/HTML">HTML</a></li>
     <li><a href="https://developer.mozilla.org/es/docs/Web/CSS">CSS</a></li>
     <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a></li>
-    <li><a href="https://webpack.js.org/">Webpack</a></li>
   </ul>
 </details>
 
