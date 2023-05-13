@@ -19,7 +19,9 @@ function getFeedHtml() {
             <p class='tweet-text'>${tweet.tweetText}</p>
             <div class='tweet-details'>
               <span class='tweet-detail'>
-                <i class='fa-regular fa-comment-dots'></i>
+                <i class='fa-regular fa-comment-dots'
+                data-reply='${tweet.uuid}
+                ></i>
               ${tweet.replies.length}</span>
               <span class='tweet-detail'>
               <li class='fa-solid fa-heart'></li>
