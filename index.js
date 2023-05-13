@@ -24,7 +24,9 @@ function getFeedHtml() {
                 ></i>
               ${tweet.replies.length}</span>
               <span class='tweet-detail'>
-              <li class='fa-solid fa-heart'></li>
+              <li class='fa-solid fa-heart'
+              data-like='${tweet.uuid}'
+              ></li>
               ${tweet.likes}</span>
               <span class='tweet-detail'>
               <li class='fa-solid fa-retweet'></li>
