@@ -6,6 +6,20 @@ tweetBtn.addEventListener('click', function () {
   console.log(tweetInput.value);
 });
 
+document.addEventListener('click', function (e) {
+  if (e.target.dataset.like) {
+    handleLikeClick(e.target.dataset.like);
+  }
+});
+
+function handleLikeClick(tweetId) {
+  const targetTweetObj = tweetsData.filter(function (tweet) {
+    return tweet.uuid === tweetId;
+  })[0];
+  targetTweetObj.likes++;
+  console.log(targetTweetObj);
+}
+
 function getFeedHtml() {
   let feedHtml = '';
 
