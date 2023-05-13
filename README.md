@@ -59,7 +59,6 @@
 ### Key Features <a name="key-features"></a>
 
 - **Use of ES6 syntax**
-- **Modular JavaScript: The application is built using JavaScript modules, resulting in a well-organized, maintainable, and scalable codebase.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
