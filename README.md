@@ -252,10 +252,6 @@ I would like to thank Wes Bos because I learned how to implement flexbox with hi
 
   - Yes! I will transform this website into a React App.
 
-- **Did you create this website from scratch?**
-
-  - Yes! From zero, and I will improve it a lot.
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
