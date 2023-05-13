@@ -20,7 +20,7 @@ function getFeedHtml() {
             <div class='tweet-details'>
               <span class='tweet-detail'>
                 <i class='fa-regular fa-comment-dots'
-                data-reply='${tweet.uuid}
+                data-reply='${tweet.uuid}'
                 ></i>
               ${tweet.replies.length}</span>
               <span class='tweet-detail'>
@@ -29,7 +29,9 @@ function getFeedHtml() {
               ></li>
               ${tweet.likes}</span>
               <span class='tweet-detail'>
-              <li class='fa-solid fa-retweet'></li>
+              <li class='fa-solid fa-retweet'
+              data-retweet='${tweet.uuid}'
+              ></li>
               ${tweet.retweets}</span>
             </div>
           </div>
@@ -40,7 +42,6 @@ function getFeedHtml() {
   return feedHtml;
 }
 
-// () => { const feed = document.getElementById('feed'); feed.innerHTML = getFeedHtml() };
 function render() {
   document.getElementById('feed').innerHTML = getFeedHtml();
 }
