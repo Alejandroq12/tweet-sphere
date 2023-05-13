@@ -212,8 +212,6 @@ You can deploy this project using GitHub pages:
 
 - [ ] **I will add media queries for larger screens**
 - [ ] **I will use JavaScript to add more interactivity**
-- [ ] **Mark tasks as completed**
-- [ ] **Automatically reorder tasks based on priority**
 - [ ] **Fully responsive design for mobile and desktop devices**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
