@@ -17,10 +17,9 @@ document.addEventListener('click', (e) => {
 
 function handleLikeClick(tweetId) {
   const targetTweetObj = tweetsData.filter((tweet) => tweet.uuid === tweetId)[0];
-  // eslint-disable-next-line no-plusplus
-  targetTweetObj.likes++;
-  // eslint-disable-next-line no-console
-  console.log(targetTweetObj);
+  targetTweetObj.likes += 1;
+  // eslint-disable-next-line no-use-before-define
+  render();
 }
 
 function getFeedHtml() {
