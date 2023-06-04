@@ -17,7 +17,13 @@ document.addEventListener('click', (e) => {
 
 function handleLikeClick(tweetId) {
   const targetTweetObj = tweetsData.filter((tweet) => tweet.uuid === tweetId)[0];
-  targetTweetObj.likes += 1;
+  if (targetTweetObj.isLiked) {
+    targetTweetObj.likes -= 1;
+    targetTweetObj.isLiked = false;
+  } else {
+    targetTweetObj.likes += 1;
+    targetTweetObj.isLiked = true;
+  }
   // eslint-disable-next-line no-use-before-define
   render();
 }
