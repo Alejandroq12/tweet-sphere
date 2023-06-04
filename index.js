@@ -50,6 +50,12 @@ function getFeedHtml() {
   let feedHtml = '';
 
   tweetsData.forEach((tweet) => {
+    let likeIconClass = '';
+
+    if (tweet.isLiked) {
+      likeIconClass = 'liked';
+    }
+
     feedHtml += `
         <div class='tweet'>
         <div class='tweet-inner'>
@@ -64,7 +70,7 @@ function getFeedHtml() {
                 ></i>
               ${tweet.replies.length}</span>
               <span class='tweet-detail'>
-              <li class='fa-solid fa-heart'
+              <li class='fa-solid fa-heart ${likeIconClass}'
               data-like='${tweet.uuid}'
               ></li>
               ${tweet.likes}</span>
