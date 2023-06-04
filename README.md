@@ -50,7 +50,6 @@
     <li><a href="https://developer.mozilla.org/es/docs/Learn/HTML">HTML</a></li>
     <li><a href="https://developer.mozilla.org/es/docs/Web/CSS">CSS</a></li>
     <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a></li>
-    <li><a href="https://webpack.js.org/">Webpack</a></li>
   </ul>
 </details>
 
@@ -60,7 +59,6 @@
 ### Key Features <a name="key-features"></a>
 
 - **Use of ES6 syntax**
-- **Modular JavaScript: The application is built using JavaScript modules, resulting in a well-organized, maintainable, and scalable codebase.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -98,7 +96,7 @@ Clone this repository to your desired folder:
 
 1. Clone it using your terminal:
 ```
-git clone https://github.com/Alejandroq12/to-do-list.git
+git clone https://github.com/Alejandroq12/TwitterClon.git
 ```
 
 2. If the previous method does not work you may also download the repo as a .zip file and once you decompress the .zip file you are ready to use it.
@@ -214,8 +212,6 @@ You can deploy this project using GitHub pages:
 
 - [ ] **I will add media queries for larger screens**
 - [ ] **I will use JavaScript to add more interactivity**
-- [ ] **Mark tasks as completed**
-- [ ] **Automatically reorder tasks based on priority**
 - [ ] **Fully responsive design for mobile and desktop devices**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -255,10 +251,6 @@ I would like to thank Wes Bos because I learned how to implement flexbox with hi
 - **Are you going to use React in the future?**
 
   - Yes! I will transform this website into a React App.
-
-- **Did you create this website from scratch?**
-
-  - Yes! From zero, and I will improve it a lot.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
