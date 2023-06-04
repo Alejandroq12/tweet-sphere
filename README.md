@@ -38,7 +38,7 @@
 
 # 📖 TweetSphere <a name="about-project"></a>
 
-🚀 This repository contains the front-end implementation of a social media web application.
+🚀 A social media website created with JavaScript, CSS, and HTML.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -66,7 +66,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://alejandroq12.github.io/TwitterClon/)
+- [Live Demo Link](https://alejandroq12.github.io/tweet-sphere/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -96,7 +96,7 @@ Clone this repository to your desired folder:
 
 1. Clone it using your terminal:
 ```
-git clone https://github.com/Alejandroq12/TwitterClon.git
+git clone https://github.com/Alejandroq12/tweet-sphere.git
 ```
 
 2. If the previous method does not work you may also download the repo as a .zip file and once you decompress the .zip file you are ready to use it.
@@ -115,8 +115,6 @@ cd ..
 ```
 
 ### Install
-
-Install this project with:
 
 1. To view this project, no additional installation is required.
 
@@ -138,7 +136,6 @@ node_modules/
 ### Usage
 
 To use this project locally on your computer, follow these steps:
-
 
 1. Clone the repository or download the project files.
 2. Navigate to the project directory where the index.html file is located.
@@ -232,6 +229,7 @@ Feel free to check the [issues page](../../issues/).
 
 If you like this project please give a star.
 Thanks in advance.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGEMENTS -->
