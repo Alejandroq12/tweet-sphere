@@ -1,29 +1,32 @@
-import { tweetsData } from './modules/data.js';
+import tweetsData from './modules/data.js';
+
 const tweetInput = document.getElementById('tweet-input');
 const tweetBtn = document.getElementById('tweet-btn');
 
-tweetBtn.addEventListener('click', function () {
+tweetBtn.addEventListener('click', () => {
+  // eslint-disable-next-line no-console
   console.log(tweetInput.value);
 });
 
-document.addEventListener('click', function (e) {
+document.addEventListener('click', (e) => {
   if (e.target.dataset.like) {
+    // eslint-disable-next-line no-use-before-define
     handleLikeClick(e.target.dataset.like);
   }
 });
 
 function handleLikeClick(tweetId) {
-  const targetTweetObj = tweetsData.filter(function (tweet) {
-    return tweet.uuid === tweetId;
-  })[0];
+  const targetTweetObj = tweetsData.filter((tweet) => tweet.uuid === tweetId)[0];
+  // eslint-disable-next-line no-plusplus
   targetTweetObj.likes++;
+  // eslint-disable-next-line no-console
   console.log(targetTweetObj);
 }
 
 function getFeedHtml() {
   let feedHtml = '';
 
-  tweetsData.forEach(function (tweet) {
+  tweetsData.forEach((tweet) => {
     feedHtml += `
         <div class='tweet'>
         <div class='tweet-inner'>
