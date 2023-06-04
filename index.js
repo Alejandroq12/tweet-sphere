@@ -12,6 +12,9 @@ document.addEventListener('click', (e) => {
   if (e.target.dataset.like) {
     // eslint-disable-next-line no-use-before-define
     handleLikeClick(e.target.dataset.like);
+  } else if (e.target.dataset.retweet) {
+    // eslint-disable-next-line no-use-before-define
+    handleRetweetClick(e.target.dataset.retweet);
   }
 });
 
@@ -25,6 +28,20 @@ function handleLikeClick(tweetId) {
     targetTweetObj.likes += 1;
   }
   targetTweetObj.isLiked = !targetTweetObj.isLiked;
+  // eslint-disable-next-line no-use-before-define
+  render();
+}
+
+function handleRetweetClick(tweetId) {
+  const targetTweetObj = tweetsData.filter(
+    (tweet) => tweet.uuid === tweetId,
+  )[0];
+  if (targetTweetObj.isRetweeted) {
+    targetTweetObj.retweets -= 1;
+  } else {
+    targetTweetObj.retweets += 1;
+  }
+  targetTweetObj.isRetweeted = !targetTweetObj.isRetweeted;
   // eslint-disable-next-line no-use-before-define
   render();
 }
