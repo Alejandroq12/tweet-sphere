@@ -7,10 +7,11 @@ body {
 
 :root {
   --color-blue: #0f8cdf;
-  --color-red: #ff0000;
+  --color-red: #f00;
   --color-limegreen: #32cd32;
   --color-gray: #808080;
 }
+
 /* typography and icons */
 
 h1 {
@@ -107,7 +108,7 @@ button {
   border-top: 1px solid var(--color-gray);
   padding: 20px 0 0 40px;
   margin: 10px 0 10px 40px;
-  width: 80%; 
+  width: 80%;
 }
 
 .handle {
@@ -132,5 +133,5 @@ button {
 
 /* utility */
 .hidden {
-  display:none;
+  display: none;
 }
