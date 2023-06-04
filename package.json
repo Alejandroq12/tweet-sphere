@@ -1,0 +1,23 @@
+{
+  "name": "twitterclon",
+  "version": "1.0.0",
+  "description": "<a name=\"readme-top\">TweetSphere</a>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alejandroq12/TwitterClon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alejandroq12/TwitterClon/issues"
+  },
+  "homepage": "https://github.com/Alejandroq12/TwitterClon#readme",
+  "devDependencies": {
+    "hint": "^7.1.8"
+  }
+}
