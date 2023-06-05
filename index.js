@@ -1,12 +1,6 @@
 import tweetsData from './modules/data.js';
 
 const tweetInput = document.getElementById('tweet-input');
-const tweetBtn = document.getElementById('tweet-btn');
-
-tweetBtn.addEventListener('click', () => {
-  // eslint-disable-next-line no-console
-  console.log(tweetInput.value);
-});
 
 document.addEventListener('click', (e) => {
   if (e.target.dataset.like) {
@@ -15,6 +9,12 @@ document.addEventListener('click', (e) => {
   } else if (e.target.dataset.retweet) {
     // eslint-disable-next-line no-use-before-define
     handleRetweetClick(e.target.dataset.retweet);
+  } else if (e.target.dataset.reply) {
+    // eslint-disable-next-line no-use-before-define
+    handleReplyClick(e.target.dataset.reply);
+  } else if (e.target.id === 'tweet-btn') {
+    // eslint-disable-next-line no-use-before-define
+    handleTweetBtnClick();
   }
 });
 
@@ -44,6 +44,14 @@ function handleRetweetClick(tweetId) {
   targetTweetObj.isRetweeted = !targetTweetObj.isRetweeted;
   // eslint-disable-next-line no-use-before-define
   render();
+}
+
+function handleReplyClick(replyId) {
+  document.getElementById(`replies-${replyId}`).classList.toggle('hidden');
+}
+
+function handleTweetBtnClick() {
+  console.log('This is my button: ', tweetInput.value);
 }
 
 function getFeedHtml() {
